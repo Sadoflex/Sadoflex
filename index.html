@@ -3,59 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadoflex</title>
+
+    <title>Sadoflex - Vídeos Informativos</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background-color: red;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #eeeeee;
+            color: #222;
         }
 
-        h1 {
+        /* CABEÇALHO */
+
+        header {
+            background-color: #c90000;
             color: white;
-            margin-top: 50px;
-            font-size: 40px;
+            padding: 25px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
         }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #222;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+
+        main {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo h1 {
+            font-size: 40px;
+            margin: 0;
+            color: #222;
+        }
+
+        .titulo p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* CATEGORIAS */
 
         details {
-            width: 500px;
-            margin: 30px auto;
             background-color: white;
+            margin-bottom: 20px;
             border-radius: 10px;
-            padding: 15px;
-            text-align: left;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+            border-left: 6px solid #c90000;
         }
 
         summary {
+            cursor: pointer;
+            padding: 22px 25px;
             font-size: 22px;
             font-weight: bold;
-            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .aula {
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 28px;
+            color: #c90000;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        summary:hover {
+            background-color: #f8f8f8;
+        }
+
+        /* CONTEÚDO DAS CATEGORIAS */
+
+        .conteudo {
+            padding: 0 25px 25px 25px;
+            border-top: 1px solid #ddd;
+        }
+
+        .video-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f1f1;
             margin-top: 15px;
-            padding: 15px;
-            background-color: #f0f0f0;
+            padding: 18px;
             border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .video-info:hover {
+            background-color: #e5e5e5;
+            transform: translateX(5px);
+        }
+
+        .video-texto {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icone {
+            width: 45px;
+            height: 45px;
+            background-color: #c90000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .video-info h3 {
+            margin: 0 0 5px 0;
             font-size: 18px;
         }
+
+        .video-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .botao {
+            background-color: #c90000;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background-color: #a80000;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            margin-top: 60px;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+            color: #ccc;
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .titulo h1 {
+                font-size: 32px;
+            }
+
+            summary {
+                font-size: 18px;
+            }
+
+            .video-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .botao {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <h1>Aulas</h1>
+    <!-- CABEÇALHO -->
 
-    <details>
-        <summary>Aulas de Pneumática</summary>
+    <header>
 
-        <div class="aula">
-            Aula: Como usar a máquina pneumática
+        <div class="logo">
+            SADOFLEX
         </div>
 
-    </details>
+        <div class="subtitulo">
+            Informação e conhecimento para os colaboradores
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <div class="titulo">
+
+            <h1>Vídeos Informativos</h1>
+
+            <p>
+                Consulte informações sobre máquinas, equipamentos
+                e procedimentos da Sadoflex.
+            </p>
+
+        </div>
+
+
+        <!-- PNEUMÁTICA -->
+
+        <details>
+
+            <summary>
+                🔧 Pneumática
+            </summary>
+
+            <div class="conteudo">
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Como funciona a máquina pneumática
+                            </h3>
+
+                            <p>
+                                Conheça o funcionamento e os principais
+                                componentes da máquina.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="pneumatica-funcionamento.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Como ligar a máquina pneumática
+                            </h3>
+
+                            <p>
+                                Procedimento correto para colocar
+                                a máquina em funcionamento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="pneumatica-ligar.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Como desligar a máquina pneumática
+                            </h3>
+
+                            <p>
+                                Procedimento correto para desligar
+                                a máquina em segurança.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="pneumatica-desligar.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Cuidados de segurança
+                            </h3>
+
+                            <p>
+                                Informações importantes antes de
+                                utilizar o equipamento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="pneumatica-seguranca.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+        <!-- MÁQUINAS -->
+
+        <details>
+
+            <summary>
+                ⚙️ Máquinas e Equipamentos
+            </summary>
+
+            <div class="conteudo">
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Utilização das máquinas
+                            </h3>
+
+                            <p>
+                                Informações gerais sobre a utilização
+                                dos equipamentos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="maquinas-utilizacao.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+        <!-- SEGURANÇA -->
+
+        <details>
+
+            <summary>
+                🦺 Segurança
+            </summary>
+
+            <div class="conteudo">
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Equipamentos de proteção
+                            </h3>
+
+                            <p>
+                                Conheça os equipamentos de proteção
+                                necessários no local de trabalho.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="seguranca-equipamentos.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+        <!-- MANUTENÇÃO -->
+
+        <details>
+
+            <summary>
+                🛠️ Manutenção
+            </summary>
+
+            <div class="conteudo">
+
+                <div class="video-info">
+
+                    <div class="video-texto">
+
+                        <div class="icone">
+                            ▶
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Manutenção dos equipamentos
+                            </h3>
+
+                            <p>
+                                Informações sobre cuidados e manutenção
+                                dos equipamentos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <a href="manutencao.html" class="botao">
+                        Ver vídeo
+                    </a>
+
+                </div>
+
+            </div>
+
+        </details>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>
+            SADOFLEX
+        </p>
+
+        <p>
+            Plataforma de Vídeos Informativos
+        </p>
+
+    </footer>
 
 </body>
 </html>
